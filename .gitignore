@@ -3,6 +3,10 @@ logs
 *.log
 npm-debug.log*
 
+
+# type script artifacts
+/typings
+
 # Runtime data
 pids
 *.pid
@@ -31,3 +35,16 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+# ignore build and dist for now
+/build
+/dist
+
+/demo/**/*.js
+/demo/**/*.js.map
+/components/**/*.js
+/components/**/*.js.map
+/components/**/*.d.ts
+dcl-component.js
+dcl-component.js.map
+dcl-component.d.ts
