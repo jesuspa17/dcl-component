@@ -18,10 +18,12 @@ gulp.paths = {
 
 require('require-dir')('./gulp-tasks');
 
-var clean = require('gulp-clean');
-gulp.task('clean', function () {
-  return gulp.src('dist', {read: false})
-    .pipe(clean());
+var ignore = require('gulp-ignore');
+var rimraf = require('gulp-rimraf');
+gulp.task('clean', function (cb) {
+  return gulp.src('./**/*.js', { read: false }) // much faster
+    .pipe(ignore('node_modules/**'))
+    .pipe(rimraf());
 });
 
 gulp.task('default', function () {
