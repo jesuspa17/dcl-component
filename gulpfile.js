@@ -18,11 +18,9 @@ gulp.paths = {
 
 require('require-dir')('./gulp-tasks');
 
-var ignore = require('gulp-ignore');
 var rimraf = require('gulp-rimraf');
 gulp.task('clean', function (cb) {
-  return gulp.src('./**/*.js', { read: false }) // much faster
-    .pipe(ignore('node_modules/**'))
+  return gulp.src('dist', {read: false})
     .pipe(rimraf());
 });
 
