@@ -13,7 +13,10 @@ import {DemoComponent} from './demo-component';
     <div>
       {{_data}}
       <dcl-component [type]="_component"
-                     [init]="_func">
+                     [init]="_func"
+                     [data]="_data">
+      </dcl-component>
+      <dcl-component [data]="_data2">
       </dcl-component>
     </div>
     <br>
@@ -27,13 +30,15 @@ export class DCLSection {
   private _data: number = 1;
   private _func: any;
 
+  private _data2: String = 'Hola mundo';
+
   private value: number = 0;
 
   constructor() {
     this._func = this.pruebaInit.bind(this);
   }
 
-  private pruebaInit(component: ComponentRef): void {
+  private pruebaInit(component: ComponentRef, data: any): void {
     console.log(this.value);
     console.log('Private variable value: %d and data: %d', this.value, this._data);
     component.instance._campo = this._data;
