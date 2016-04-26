@@ -3,6 +3,7 @@ import {
   ComponentRef,
   OnInit,
   EventEmitter,
+  ViewContainerRef,
   ElementRef,
   Renderer,
   Type,
@@ -16,7 +17,7 @@ export interface InitFunc {
 @Component({
   selector: 'dcl-component, [ngTable]',
   inputs: ['type', 'init', 'data', 'identifier' ],
-  template: '<dcl-reference #child></dcl-reference>'
+  template: ''
 })
 export class DCLComponent implements OnInit {
 
@@ -29,11 +30,12 @@ export class DCLComponent implements OnInit {
   constructor(
     private _dcl: DynamicComponentLoader,
     private _renderer: Renderer,
-    private _elem: ElementRef) { }
+    private _elem: ElementRef,
+    private _view: ViewContainerRef) { }
 
   ngOnInit() {
     if (this.type) {
-      this._dcl.loadIntoLocation(this.type, this._elem, 'child')
+      this._dcl.loadNextToLocation(this.type, this._view)
       .then((res: ComponentRef) => {
         if (this.init) {
           this.init(res, this.identifier, this.data);
