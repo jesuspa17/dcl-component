@@ -29,7 +29,7 @@
   "homepage": "https://github.com/jdelgadoalfonso/dcl-component#readme",
   "dependencies": {},
   "devDependencies": {
-    "angular2": "2.0.0-beta.16",
+    "angular2": "2.0.0-beta.17",
     "clean-webpack-plugin": "0.1.8",
     "compression-webpack-plugin": "0.3.1",
     "es6-promise": "^3.0.2",
@@ -52,7 +52,7 @@
     "raw-loader": "0.5.1",
     "reflect-metadata": "0.1.2",
     "require-dir": "0.3.0",
-    "rxjs": "5.0.0-beta.2",
+    "rxjs": "5.0.0-beta.6",
     "ts-loader": "0.8.2",
     "tslint": "3.8.1",
     "typescript": "1.8.10",
