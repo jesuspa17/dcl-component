@@ -8,10 +8,10 @@ import {
   Renderer,
   Type,
   DynamicComponentLoader
-} from 'angular2/core';
+} from '@angular/core';
 
 export interface InitFunc {
-  (component: ComponentRef, identifier: any, data: any): void;
+  (component: ComponentRef<any>, identifier: any, data: any): void;
 }
 
 @Component({
@@ -36,7 +36,7 @@ export class DCLComponent implements OnInit {
   ngOnInit() {
     if (this.type) {
       this._dcl.loadNextToLocation(this.type, this._view)
-      .then((res: ComponentRef) => {
+      .then((res: ComponentRef<any>) => {
         if (this.init) {
           this.init(res, this.identifier, this.data);
         }
