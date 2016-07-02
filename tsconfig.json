@@ -14,12 +14,10 @@
     "suppressImplicitAnyIndexErrors": true
   },
   "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
+    "node_modules"
   ],
   "files": [
     "dcl-component.ts",
-    "typings/browser.d.ts"
+    "typings/index.d.ts"
   ]
 }
