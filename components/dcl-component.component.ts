@@ -1,14 +1,16 @@
 import {
   Component,
+  ComponentFactoryResolver,
   ComponentRef,
-  OnInit,
-  EventEmitter,
-  ViewContainerRef,
   ElementRef,
+  EventEmitter,
+  OnInit,
+  ReflectiveInjector,
   Renderer,
   Type,
-  DynamicComponentLoader
+  ViewContainerRef
 } from '@angular/core';
+import {createComponent} from './create-components';
 
 export interface InitFunc {
   (component: ComponentRef<any>, identifier: any, data: any): void;
@@ -22,25 +24,28 @@ export interface InitFunc {
 export class DCLComponent implements OnInit {
 
   // Inputs
-  public type: Type;
+  public type: Type<any>;
   public init: InitFunc;
   public data: any;
   public identifier: any;
 
   constructor(
-    private _dcl: DynamicComponentLoader,
+    private _cr: ComponentFactoryResolver,
     private _renderer: Renderer,
     private _elem: ElementRef,
     private _view: ViewContainerRef) { }
 
   ngOnInit() {
     if (this.type) {
-      this._dcl.loadNextToLocation(this.type, this._view)
-      .then((res: ComponentRef<any>) => {
-        if (this.init) {
-          this.init(res, this.identifier, this.data);
-        }
-      });
+
+      const cmpRef = createComponent(this._cr, this.type, this._view, undefined);
+
+      this._view.element.nativeElement.appendChild(cmpRef.location.nativeElement);
+
+      if (this.init) {
+        this.init(cmpRef, this.identifier, this.data);
+      }
+
     } else {
       this._renderer.setText(this._elem.nativeElement, this.data);
     }
