@@ -17,7 +17,7 @@ export interface InitFunc {
 }
 
 @Component({
-  selector: 'dcl-component, [ngTable]',
+  selector: 'dcl-component, [dcl-component]',
   inputs: ['type', 'init', 'data', 'identifier' ],
   template: ''
 })
