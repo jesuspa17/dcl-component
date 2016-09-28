@@ -1,2 +1,3 @@
 export * from './components/dcl-component.component';
-export * from './components/dcl-component.module';
+
+export {DCLModule} from './components/dcl-component.module';

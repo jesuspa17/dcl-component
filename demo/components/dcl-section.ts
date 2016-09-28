@@ -1,7 +1,5 @@
-import {Component, ComponentRef} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component, ComponentRef} from '@angular/core';
 
-import {DCLComponent} from '../../dcl-component';
 import {DemoComponent} from './demo-component';
 
 @Component({
@@ -12,17 +10,15 @@ import {DemoComponent} from './demo-component';
     <hr>
     <div>
       {{_data}}
-      <dcl-component [type]="_component"
+      <dclcomponent [type]="_component"
                      [init]="_func"
                      [data]="_data">
-      </dcl-component>
-      <dcl-component [data]="_data2">
-      </dcl-component>
+      </dclcomponent>
+      <dclcomponent [data]="_data2"></dclcomponent>
     </div>
     <br>
   </section>
-  `,
-  directives: [DCLComponent, CORE_DIRECTIVES]
+  `
 })
 export class DCLSection {
 
@@ -38,7 +34,7 @@ export class DCLSection {
     this._func = this.pruebaInit.bind(this);
   }
 
-  private pruebaInit(component: ComponentRef, data: any): void {
+  private pruebaInit(component: ComponentRef<any>, data: any): void {
     console.log(this.value);
     console.log('Private variable value: %d and data: %d', this.value, this._data);
     component.instance._campo = this._data;

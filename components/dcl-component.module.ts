@@ -6,7 +6,6 @@ import {DCLComponent} from './dcl-component.component';
 @NgModule({
   imports: [CommonModule],
   declarations: [DCLComponent],
-  exports: [DCLComponent],
-  entryComponents: [DCLComponent]
+  exports: [DCLComponent]
 })
 export class DCLModule { }

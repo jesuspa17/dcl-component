@@ -19,14 +19,15 @@ export interface InitFunc {
 
 @Component({
   selector: 'dclcomponent',
+  inputs: [ 'type', 'init', 'data', 'identifier' ],
   template: ''
 })
 export class DCLComponent implements OnInit {
   // Inputs
-  @Input() public type: Type<any>;
-  @Input() public init: InitFunc;
-  @Input() public data: any;
-  @Input() public identifier: any;
+  public type: Type<any>;
+  public init: InitFunc;
+  public data: any;
+  public identifier: any;
 
   constructor(
     private _cr: ComponentFactoryResolver,
