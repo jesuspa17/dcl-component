@@ -18,11 +18,10 @@ export interface InitFunc {
 }
 
 @Component({
-  selector: 'dclcomponent, [dclcomponent]',
+  selector: 'dclcomponent',
   template: ''
 })
 export class DCLComponent implements OnInit {
-
   // Inputs
   @Input() public type: Type<any>;
   @Input() public init: InitFunc;
