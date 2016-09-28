@@ -4,6 +4,7 @@ import {
   ComponentRef,
   ElementRef,
   EventEmitter,
+  Input,
   OnInit,
   ReflectiveInjector,
   Renderer,
@@ -18,16 +19,15 @@ export interface InitFunc {
 
 @Component({
   selector: 'dclcomponent, [dclcomponent]',
-  inputs: ['type', 'init', 'data', 'identifier' ],
   template: ''
 })
 export class DCLComponent implements OnInit {
 
   // Inputs
-  public type: Type<any>;
-  public init: InitFunc;
-  public data: any;
-  public identifier: any;
+  @Input() public type: Type<any>;
+  @Input() public init: InitFunc;
+  @Input() public data: any;
+  @Input() public identifier: any;
 
   constructor(
     private _cr: ComponentFactoryResolver,
