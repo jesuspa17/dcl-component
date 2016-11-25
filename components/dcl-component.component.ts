@@ -47,7 +47,7 @@ export class DCLComponent implements OnInit {
       }
 
     } else {
-      this._renderer.setText(this._elem.nativeElement, this.data);
+      this._renderer.createText(this._elem.nativeElement, this.data);
     }
   }
 
