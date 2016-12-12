@@ -26,7 +26,7 @@ export class DCLSection {
   private _data: number = 1;
   private _func: any;
 
-  private _data2: String = 'Hola mundo';
+  private _data2: number = 0;
 
   private value: number = 0;
 
