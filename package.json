@@ -1,6 +1,6 @@
 {
   "name": "dcl-component",
-  "version": "2.3.0",
+  "version": "2.3.0-2",
   "description": "angular2 dynamic loader component",
   "scripts": {
     "deploy": "NODE_ENV=production webpack -p --progress --color --optimize-minimize --optimize-dedupe --optimize-occurence-order",
