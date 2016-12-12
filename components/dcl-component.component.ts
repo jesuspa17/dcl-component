@@ -1,13 +1,16 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ComponentFactoryResolver,
   ComponentRef,
   ElementRef,
   EventEmitter,
   Input,
+  OnChanges,
   OnInit,
   ReflectiveInjector,
   Renderer,
+  SimpleChange,
   Type,
   ViewContainerRef
 } from '@angular/core';
@@ -19,31 +22,34 @@ export interface InitFunc {
 
 @Component({
   selector: 'dclcomponent',
-  inputs: [ 'type', 'init', 'data', 'identifier' ],
-  template: ''
+  template: '',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DCLComponent implements OnInit {
+export class DCLComponent implements OnInit, OnChanges {
   // Inputs
-  public type: Type<any>;
-  public init: InitFunc;
-  public data: any;
-  public identifier: any;
+  @Input() public type: Type<any>;
+  @Input() public init: InitFunc;
+  @Input() public data: any;
+  @Input() public identifier: any;
+
+  private _cmpRef: ComponentRef<any>;
 
   constructor(
     private _cr: ComponentFactoryResolver,
     private _renderer: Renderer,
     private _elem: ElementRef,
-    private _view: ViewContainerRef) { }
+    private _view: ViewContainerRef
+  ) { }
 
   ngOnInit() {
     if (this.type) {
 
-      const cmpRef = createComponent(this._cr, this.type, this._view, undefined);
+      this._cmpRef = createComponent(this._cr, this.type, this._view, undefined);
 
-      this._view.element.nativeElement.appendChild(cmpRef.location.nativeElement);
+      this._view.element.nativeElement.appendChild(this._cmpRef.location.nativeElement);
 
       if (this.init) {
-        this.init(cmpRef, this.identifier, this.data);
+        this.init(this._cmpRef, this.identifier, this.data);
       }
 
     } else {
@@ -51,4 +57,10 @@ export class DCLComponent implements OnInit {
     }
   }
 
+  ngOnChanges(changes: { [propName: string]: SimpleChange }) {
+    if (this._cmpRef) {
+      this._view.element.nativeElement.removeChild(this._cmpRef.location.nativeElement);
+      this.ngOnInit();
+    }
+  }
 }
