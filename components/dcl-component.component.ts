@@ -53,7 +53,7 @@ export class DCLComponent implements OnInit, OnChanges {
       }
 
     } else {
-      this._renderer.createText(this._elem.nativeElement, this.data ? this.data : '');
+      this._renderer.createText(this._elem.nativeElement, this.data !== null && this.data !== undefined ? this.data : '');
     }
   }
 
