@@ -1,6 +1,6 @@
 {
   "name": "dcl-component",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "description": "angular2 dynamic loader component",
   "scripts": {
     "deploy": "NODE_ENV=production webpack -p --progress --color --optimize-minimize --optimize-dedupe --optimize-occurence-order",
@@ -28,11 +28,11 @@
   },
   "homepage": "https://github.com/jdelgadoalfonso/dcl-component#readme",
   "dependencies": {
-    "@angular/common": "2.4.6",
-    "@angular/compiler": "2.4.6",
-    "@angular/core": "2.4.6",
-    "@angular/platform-browser": "2.4.6",
-    "@angular/platform-browser-dynamic": "2.4.6",
+    "@angular/common": "2.4.7",
+    "@angular/compiler": "2.4.7",
+    "@angular/core": "2.4.7",
+    "@angular/platform-browser": "2.4.7",
+    "@angular/platform-browser-dynamic": "2.4.7",
     "es6-promise": "4.0.5",
     "es6-shim": "0.35.3",
     "es7-reflect-metadata": "1.6.0",
@@ -61,7 +61,7 @@
     "require-dir": "0.3.1",
     "ts-loader": "2.0.0",
     "tslint": "4.4.2",
-    "typescript": "2.1.5",
+    "typescript": "2.1.6",
     "typings": "2.1.0",
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.3"
