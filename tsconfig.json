@@ -1,5 +1,5 @@
 {
-  "version": "2.0.3",
+  "version": "2.3.2",
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
@@ -11,13 +11,22 @@
     "listFiles": false,
     "noLib": false,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "noEmitHelpers": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "lib": [ "es6", "dom" ],
+    "types": [
+      "hammerjs",
+      "jasmine",
+      "node",
+      "selenium-webdriver",
+      "source-map",
+      "webpack"
+    ]
   },
   "exclude": [
     "node_modules"
   ],
   "files": [
-    "dcl-component.ts",
-    "typings/index.d.ts"
+    "dcl-component.ts"
   ]
 }
